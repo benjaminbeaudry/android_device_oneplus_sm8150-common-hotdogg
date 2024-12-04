@@ -173,8 +173,6 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
-TARGET_HAS_UDFPS := true
-
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.oneplus \
     vendor.goodix.hardware.biometrics.fingerprint@2.1.vendor:64
@@ -489,10 +487,11 @@ PRODUCT_PACKAGES += \
     libnl \
     libwfdaac_vendor
 
-# PRODUCT_BOOT_JARS += \
+PRODUCT_BOOT_JARS += \
+    oneplus-fwk
 #     WfdCommon
 
-# Get non-open-source specific aspects
+# Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8150-common/sm8150-common-vendor.mk)
 
 # Project ID Quota
@@ -512,9 +511,6 @@ PRODUCT_COPY_FILES += \
 
 # OnePlus
 PRODUCT_PACKAGES += \
-    oneplus-fwk
-
-PRODUCT_BOOT_JARS += \
     oneplus-fwk
 
 # Vendor libstdc++
