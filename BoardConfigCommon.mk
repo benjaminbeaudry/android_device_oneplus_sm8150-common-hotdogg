@@ -80,7 +80,6 @@ TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oneplus:libudfps_extension.oneplus
 #     vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
-ODM_MANIFEST_FILES := $(COMMON_PATH)/manifest-qva.xml
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -100,8 +99,8 @@ BOARD_KERNEL_IMAGE_NAME := Image-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-# BOARD_RAMDISK_USE_LZ4 := true
-TARGET_KERNEL_ADDITIONAL_FLAGS := AS=llvm-as AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+BOARD_RAMDISK_USE_LZ4 := true
+TARGET_KERNEL_ADDITIONAL_FLAGS := BRAND_SHOW_FLAG=oneplus TARGET_PRODUCT=msmnile
 TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
